@@ -38,6 +38,15 @@ class MyDrawer extends StatelessWidget {
                     context, "/setting"
                 );
               }
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text("팝업테스트"),
+            onTap: () {
+              Navigator.pushNamed(
+                context, "/popup"
+              );
+            }
           )
         ],
       ),
