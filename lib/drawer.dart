@@ -56,6 +56,15 @@ class MyDrawer extends StatelessWidget {
                     context, "/flex"
                 );
               }
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text("Image 예제"),
+            onTap: () {
+              Navigator.pushNamed(
+                  context, "/image"
+              );
+            },
           )
         ],
       ),
