@@ -4,6 +4,7 @@ import 'package:untitled/flex_page.dart';
 import 'package:untitled/popup_page.dart';
 import 'package:untitled/setting_page.dart';
 
+import 'button_page.dart';
 import 'image_page.dart' show ImagePage;
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         "/popup" : (context) => const PopupPage(),
         "/flex" : (context) => const FlexPage(),
         "/image" : (context) => const ImagePage(),
+        "/button" : (context) => const ButtonPage(),
       },
     );
   }
