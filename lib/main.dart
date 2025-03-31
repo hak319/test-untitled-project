@@ -7,6 +7,7 @@ import 'package:untitled/setting_page.dart';
 
 import 'button_page.dart';
 import 'image_page.dart' show ImagePage;
+import 'input_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         "/flex" : (context) => const FlexPage(),
         "/image" : (context) => const ImagePage(),
         "/button" : (context) => const ButtonPage(),
+        "/input" : (context) => const InputPage(),
       },
     );
   }
