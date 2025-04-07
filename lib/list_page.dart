@@ -40,7 +40,7 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hyundai 리스트 예제"),
+        title: const Text("Hyundai 리스트"),
       ),
       body: Column(
         children: [
