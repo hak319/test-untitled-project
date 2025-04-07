@@ -29,7 +29,7 @@ class _ListPageState extends State<ListPage> {
                       child: TextField(
                         controller: _controller,
                         decoration: const InputDecoration(
-                            hintText: "아이템입력", border: OutlineInputBorder()),
+                            hintText: "차종입력", border: OutlineInputBorder()),
                       )),
                   const SizedBox(
                     width: 10,
