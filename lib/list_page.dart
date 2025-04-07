@@ -8,15 +8,17 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-  final List<String> fruits = ["아반떼", "쏘나타", "그랜저", "아이오닉5", "아이오닉6"];
-  final TextEditingController _controller = TextEditingController();  // Corrected this line
-  String text = "";  // Declare text as a string
+  // fruits 리스트를 hyundai 리스트로 수정
+  final List<String> hyundai = ["아반떼", "쏘나타", "그랜저", "아이오닉5", "아이오닉6"];
+  final TextEditingController _controller =
+  TextEditingController(); // Corrected this line
+  String text = ""; // Declare text as a string
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("List 예제"),
+          title: const Text("Hyundai 리스트 예제"),
         ),
         body: Column(
           children: [
@@ -35,10 +37,11 @@ class _ListPageState extends State<ListPage> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        text = _controller.text.trim(); // Correct the assignment
+                        text =
+                            _controller.text.trim(); // Correct the assignment
                         if (text.isNotEmpty) {
                           setState(() {
-                            fruits.add(text);
+                            hyundai.add(text); // Add to hyundai list
                             _controller.clear(); // Clear the input after adding
                           });
                         }
@@ -50,14 +53,25 @@ class _ListPageState extends State<ListPage> {
             const Divider(),
             Expanded(
               child: ListView.builder(
-                  itemCount: fruits.length,
+                  itemCount: hyundai.length,
                   itemBuilder: (context, index) {
                     return ListTile(
                       leading: const Icon(Icons.edit),
-                      title: Text(fruits[index]),
+                      title: Text(hyundai[index]), // Use hyundai list
                       onTap: () {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text('${fruits[index]}를 선택했어요!')));
+                            content: Text(
+                                '${hyundai[index]}를 선택했어요!'))); // Show selected car
+                      },
+                      onLongPress: () {
+                        setState(() {
+                          hyundai
+                              .removeAt(index); // Remove item from hyundai list
+                        });
+
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                                '${hyundai[index]}를 삭제했어요!'))); // Show deletion message
                       },
                     );
                   }),
@@ -66,3 +80,4 @@ class _ListPageState extends State<ListPage> {
         ));
   }
 }
+  
