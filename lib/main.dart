@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled/drawer.dart';
 import 'package:untitled/flex_page.dart';
 import 'package:untitled/layout_page.dart';
+import 'package:untitled/list_page.dart';
 import 'package:untitled/popup_page.dart';
 import 'package:untitled/setting_page.dart';
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         "/image" : (context) => const ImagePage(),
         "/button" : (context) => const ButtonPage(),
         "/input" : (context) => const InputPage(),
+        "/list" : (context) => const ListPage(),
       },
     );
   }
