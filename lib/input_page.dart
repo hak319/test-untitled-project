@@ -7,11 +7,7 @@ class InputPage extends StatefulWidget {
   State<InputPage> createState() => _InputPageState();
 }
 
-
-
-
 class _InputPageState extends State<InputPage> {
-
   final TextEditingController _controller = TextEditingController();
   String _message = "";
 
@@ -29,9 +25,7 @@ class _InputPageState extends State<InputPage> {
             TextField(
               controller: _controller,
               decoration: const InputDecoration(
-                  labelText: "이름을 입력하세요",
-                  border: OutlineInputBorder()
-              ),
+                  labelText: "이름을 입력하세요", border: OutlineInputBorder()),
             ),
             ElevatedButton(
                 onPressed: () {
@@ -39,8 +33,7 @@ class _InputPageState extends State<InputPage> {
                     _message = "${_controller.text}님, 반가워요!";
                   });
                 },
-                child: Text("확인")
-            ),
+                child: Text("확인")),
             Text(
               _message,
               style: const TextStyle(fontSize: 20),

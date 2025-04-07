@@ -10,7 +10,6 @@ class FlexPage extends StatefulWidget {
 class _FlexPageState extends State<FlexPage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flexible 예제"),
@@ -19,18 +18,15 @@ class _FlexPageState extends State<FlexPage> {
         children: [
           Flexible(
               flex: 1,
-              child : Container(
+              child: Container(
                 color: Colors.lightBlue,
                 height: 200,
-              )
-          ),
+              )),
           Flexible(
               flex: 1,
-              child : Container(
+              child: Container(
                 color: Colors.yellow,
-
-              )
-          )
+              ))
         ],
       ),
     );

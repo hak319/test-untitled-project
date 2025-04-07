@@ -29,14 +29,13 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const LayoutPage(),
         "/setting": (context) => const SettingPage(),
-        "/popup" : (context) => const PopupPage(),
-        "/flex" : (context) => const FlexPage(),
-        "/image" : (context) => const ImagePage(),
-        "/button" : (context) => const ButtonPage(),
-        "/input" : (context) => const InputPage(),
-        "/list" : (context) => const ListPage(),
+        "/popup": (context) => const PopupPage(),
+        "/flex": (context) => const FlexPage(),
+        "/image": (context) => const ImagePage(),
+        "/button": (context) => const ButtonPage(),
+        "/input": (context) => const InputPage(),
+        "/list": (context) => const ListPage(),
       },
     );
   }
 }
-
