@@ -16,7 +16,6 @@ class _ListPageState extends State<ListPage> {
 
   @override
   void initState() {
-    // Corrected the method name to 'initState'
     super.initState();
     _loadhyundai();
   }
@@ -53,6 +52,16 @@ class _ListPageState extends State<ListPage> {
                     controller: _controller,
                     decoration: const InputDecoration(
                         hintText: "차종입력", border: OutlineInputBorder()),
+                    onSubmitted: (value) {
+                      final text = value.trim();
+                      if (text.isNotEmpty) {
+                        setState(() {
+                          hyundai.add(text); // Add the new item to the list
+                          _controller.clear(); // Clear the input field
+                        });
+                        _savehyundai(); // Save updated list to shared preferences
+                      }
+                    },
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -68,7 +77,7 @@ class _ListPageState extends State<ListPage> {
                     }
                   },
                   child: const Text("추가"),
-                )
+                ),
               ],
             ),
           ),
@@ -86,48 +95,47 @@ class _ListPageState extends State<ListPage> {
                     TextEditingController(text: hyundai[index]);
 
                     showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text("아이템수정"),
-                            content: TextField(
-                              controller: _editController,
-                              decoration:
-                              const InputDecoration(hintText: "새로운 이름 입력"),
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text("아이템수정"),
+                          content: TextField(
+                            controller: _editController,
+                            decoration: const InputDecoration(
+                                hintText: "새로운 이름 입력"),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context), // 취소
+                              child: const Text("취소"),
                             ),
-                            actions: [
-                              TextButton(
-                                onPressed: () => Navigator.pop(context), // 취소
-                                child: const Text("취소"),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  final newText = _editController.text.trim();
-                                  if (newText.isNotEmpty) {
-                                    setState(() {
-                                      hyundai[index] = newText; // 아이템 수정
-                                    });
-                                    _savehyundai();
-                                  }
-                                  Navigator.pop(context);
-                                },
-                                child: const Text("저장"),
-                              ),
-                            ],
-                          );
-                        });
+                            TextButton(
+                              onPressed: () {
+                                final newText = _editController.text.trim();
+                                if (newText.isNotEmpty) {
+                                  setState(() {
+                                    hyundai[index] = newText; // 아이템 수정
+                                  });
+                                  _savehyundai();
+                                }
+                                Navigator.pop(context);
+                              },
+                              child: const Text("저장"),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   },
                   onLongPress: () {
-                    final deletedItem =
-                    hyundai[index]; // Save the deleted item before removal
+                    final deletedItem = hyundai[index]; // Save the deleted item before removal
                     setState(() {
                       hyundai.removeAt(index); // 아이템 삭제
                     });
                     _savehyundai();
 
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                            '$deletedItem를 삭제했어요!')) // Corrected the SnackBar message
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('$deletedItem를 삭제했어요!')) // Corrected the SnackBar message
                     );
                   },
                 );
